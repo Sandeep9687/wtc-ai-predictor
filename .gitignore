@@ -1,0 +1,19 @@
+# Python & Virtual Env
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# ML Models & Local Data Cache
+backend/models/*.pkl
+backend/data/raw/
+
+# Node / Next.js (for Step 5)
+node_modules/
+.next/
+out/
+
+# Environment variables & OS files
+.env
+.env.local
+.DS_Store
