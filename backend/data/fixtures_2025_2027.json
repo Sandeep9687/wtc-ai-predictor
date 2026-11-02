@@ -1,0 +1,110 @@
+[
+  {
+    "match_id": "WTC25_01",
+    "series_name": "India tour of England 2025",
+    "home_team": "ENG",
+    "away_team": "IND",
+    "venue": "Lord's, London",
+    "start_date": "2025-06-20",
+    "status": "completed",
+    "outcome": "HOME_WIN",
+    "home_penalty": 2,
+    "away_penalty": 0
+  },
+  {
+    "match_id": "WTC25_02",
+    "series_name": "India tour of England 2025",
+    "home_team": "ENG",
+    "away_team": "IND",
+    "venue": "Lord's, London",
+    "start_date": "2025-07-03",
+    "status": "completed",
+    "outcome": "AWAY_WIN",
+    "home_penalty": 0,
+    "away_penalty": 0
+  },
+  {
+    "match_id": "WTC25_03",
+    "series_name": "South Africa tour of Australia 2025-26",
+    "home_team": "AUS",
+    "away_team": "SA",
+    "venue": "The Gabba, Brisbane",
+    "start_date": "2025-11-14",
+    "status": "completed",
+    "outcome": "HOME_WIN",
+    "home_penalty": 0,
+    "away_penalty": 1
+  },
+  {
+    "match_id": "WTC26_01",
+    "series_name": "Australia tour of India 2026",
+    "home_team": "IND",
+    "away_team": "AUS",
+    "venue": "Wankhede Stadium, Mumbai",
+    "start_date": "2026-10-10",
+    "status": "upcoming",
+    "outcome": null,
+    "home_penalty": 0,
+    "away_penalty": 0
+  },
+  {
+    "match_id": "WTC26_02",
+    "series_name": "Australia tour of India 2026",
+    "home_team": "IND",
+    "away_team": "AUS",
+    "venue": "Eden Gardens, Kolkata",
+    "start_date": "2026-10-22",
+    "status": "upcoming",
+    "outcome": null,
+    "home_penalty": 0,
+    "away_penalty": 0
+  },
+  {
+    "match_id": "WTC26_03",
+    "series_name": "The Ashes 2025-26",
+    "home_team": "AUS",
+    "away_team": "ENG",
+    "venue": "Melbourne Cricket Ground (MCG)",
+    "start_date": "2026-12-26",
+    "status": "upcoming",
+    "outcome": null,
+    "home_penalty": 0,
+    "away_penalty": 0
+  },
+  {
+    "match_id": "WTC27_01",
+    "series_name": "England tour of South Africa 2027",
+    "home_team": "SA",
+    "away_team": "ENG",
+    "venue": "SuperSport Park, Centurion",
+    "start_date": "2027-01-08",
+    "status": "upcoming",
+    "outcome": null,
+    "home_penalty": 0,
+    "away_penalty": 0
+  },
+  {
+    "match_id": "WTC27_02",
+    "series_name": "Pakistan tour of Sri Lanka 2027",
+    "home_team": "SL",
+    "away_team": "PAK",
+    "venue": "Galle International Stadium",
+    "start_date": "2027-02-04",
+    "status": "upcoming",
+    "outcome": null,
+    "home_penalty": 0,
+    "away_penalty": 0
+  },
+  {
+    "match_id": "WTC27_03",
+    "series_name": "West Indies tour of New Zealand 2027",
+    "home_team": "NZ",
+    "away_team": "WI",
+    "venue": "Hagley Oval, Christchurch",
+    "start_date": "2027-03-12",
+    "status": "upcoming",
+    "outcome": null,
+    "home_penalty": 0,
+    "away_penalty": 0
+  }
+]

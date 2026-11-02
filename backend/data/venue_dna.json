@@ -1,0 +1,92 @@
+{
+  "Lord's, London": {
+    "country": "ENG",
+    "condition_type": "SENA",
+    "pace_wicket_pct": 78.4,
+    "spin_wicket_pct": 21.6,
+    "avg_first_innings_score": 312,
+    "historical_draw_pct": 22.5,
+    "pitch_nature": "Seam and swing early, batting stabilizes days 2-3"
+  },
+  "The Gabba, Brisbane": {
+    "country": "AUS",
+    "condition_type": "SENA",
+    "pace_wicket_pct": 82.1,
+    "spin_wicket_pct": 17.9,
+    "avg_first_innings_score": 335,
+    "historical_draw_pct": 14.8,
+    "pitch_nature": "High bounce, pace-dominant, low draw risk"
+  },
+  "Melbourne Cricket Ground (MCG)": {
+    "country": "AUS",
+    "condition_type": "SENA",
+    "pace_wicket_pct": 74.6,
+    "spin_wicket_pct": 25.4,
+    "avg_first_innings_score": 308,
+    "historical_draw_pct": 18.2,
+    "pitch_nature": "Balanced drop-in surface with good carry"
+  },
+  "Wankhede Stadium, Mumbai": {
+    "country": "IND",
+    "condition_type": "Subcontinent",
+    "pace_wicket_pct": 39.2,
+    "spin_wicket_pct": 60.8,
+    "avg_first_innings_score": 348,
+    "historical_draw_pct": 16.0,
+    "pitch_nature": "Red soil bounce with sharp turn from Day 3"
+  },
+  "Eden Gardens, Kolkata": {
+    "country": "IND",
+    "condition_type": "Subcontinent",
+    "pace_wicket_pct": 48.5,
+    "spin_wicket_pct": 51.5,
+    "avg_first_innings_score": 320,
+    "historical_draw_pct": 21.0,
+    "pitch_nature": "Reverse swing friendly, turns as match progresses"
+  },
+  "SuperSport Park, Centurion": {
+    "country": "SA",
+    "condition_type": "SENA",
+    "pace_wicket_pct": 86.5,
+    "spin_wicket_pct": 13.5,
+    "avg_first_innings_score": 325,
+    "historical_draw_pct": 11.4,
+    "pitch_nature": "Steep bounce, heavy pace assistance, rapid run-rate"
+  },
+  "Galle International Stadium": {
+    "country": "SL",
+    "condition_type": "Subcontinent",
+    "pace_wicket_pct": 24.8,
+    "spin_wicket_pct": 75.2,
+    "avg_first_innings_score": 365,
+    "historical_draw_pct": 13.5,
+    "pitch_nature": "Extreme turn from Day 1 afternoon"
+  },
+  "Rawalpindi Cricket Stadium": {
+    "country": "PAK",
+    "condition_type": "Subcontinent",
+    "pace_wicket_pct": 55.1,
+    "spin_wicket_pct": 44.9,
+    "avg_first_innings_score": 380,
+    "historical_draw_pct": 28.5,
+    "pitch_nature": "High scoring, flatter surface, elevated draw probability"
+  },
+  "Kensington Oval, Barbados": {
+    "country": "WI",
+    "condition_type": "Caribbean",
+    "pace_wicket_pct": 68.2,
+    "spin_wicket_pct": 31.8,
+    "avg_first_innings_score": 288,
+    "historical_draw_pct": 20.0,
+    "pitch_nature": "Two-paced bounce, deteriorating late"
+  },
+  "Hagley Oval, Christchurch": {
+    "country": "NZ",
+    "condition_type": "SENA",
+    "pace_wicket_pct": 84.0,
+    "spin_wicket_pct": 16.0,
+    "avg_first_innings_score": 295,
+    "historical_draw_pct": 12.0,
+    "pitch_nature": "Green seamer, lateral movement in first two sessions"
+  }
+}
