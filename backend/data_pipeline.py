@@ -6,7 +6,6 @@ import pandas as pd
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 
-# Baseline Test Elo Ratings (Calibrated over historical cycles)
 BASE_RATINGS: Dict[str, float] = {
     "AUS": 1780.0,
     "IND": 1765.0,
@@ -19,8 +18,6 @@ BASE_RATINGS: Dict[str, float] = {
     "BAN": 1340.0,
 }
 
-# Regional condition affinities (Modifier applied to base Elo based on venue condition)
-# SENA teams lose efficacy in Subcontinent turners; Subcontinent teams face bounce deficits in SENA.
 CONDITION_MODIFIERS: Dict[str, Dict[str, float]] = {
     "SENA": {
         "AUS": +60.0, "ENG": +40.0, "SA": +50.0, "NZ": +50.0,
@@ -48,18 +45,12 @@ class WTCDataPipeline:
             return json.load(f)
 
     def compute_effective_elo(self, team: str, condition_type: str, is_home: bool) -> float:
-        """
-        Calculates an adjusted Elo rating reflecting home advantage and regional familiarity.
-        """
         base = BASE_RATINGS.get(team, 1400.0)
         cond_bonus = CONDITION_MODIFIERS.get(condition_type, {}).get(team, 0.0)
         home_advantage = 75.0 if is_home else 0.0
         return base + cond_bonus + home_advantage
 
     def build_feature_matrix(self) -> pd.DataFrame:
-        """
-        Transforms fixtures into numeric feature vectors for ML model inference and training.
-        """
         rows = []
         for match in self.raw_fixtures:
             venue_info = self.venue_db.get(
@@ -77,20 +68,20 @@ class WTCDataPipeline:
             home_elo = self.compute_effective_elo(match["home_team"], cond_type, is_home=True)
             away_elo = self.compute_effective_elo(match["away_team"], cond_type, is_home=False)
 
-            elo_diff = home_elo - away_elo
-
             feature_row = {
                 "match_id": match["match_id"],
                 "series_name": match["series_name"],
                 "home_team": match["home_team"],
                 "away_team": match["away_team"],
                 "venue": match["venue"],
+                "start_date": match.get("start_date", ""),
                 "status": match["status"],
                 "outcome": match.get("outcome"),
-                # Core engineered features
+                "home_penalty": match.get("home_penalty", 0),
+                "away_penalty": match.get("away_penalty", 0),
                 "home_elo": home_elo,
                 "away_elo": away_elo,
-                "elo_diff": elo_diff,
+                "elo_diff": home_elo - away_elo,
                 "pace_wicket_pct": venue_info["pace_wicket_pct"],
                 "spin_wicket_pct": venue_info["spin_wicket_pct"],
                 "avg_first_innings_score": venue_info["avg_first_innings_score"],
@@ -98,21 +89,12 @@ class WTCDataPipeline:
             }
             rows.append(feature_row)
 
-        df = pd.DataFrame(rows)
-        return df
+        return pd.DataFrame(rows)
 
 
 if __name__ == "__main__":
     pipeline = WTCDataPipeline()
     df = pipeline.build_feature_matrix()
-
-    # Save to disk as cached features
     output_path = DATA_DIR / "engineered_features.json"
     df.to_json(output_path, orient="records", indent=2)
-
-    print("\n=== STEP 2: DATA PIPELINE & FEATURE MATRIX BUILT ===")
-    print(f"Total fixtures loaded: {len(df)}")
-    print(f"Saved feature dataset to: {output_path}")
-    print("\nPreview of upcoming match features:")
-    preview_cols = ["match_id", "home_team", "away_team", "elo_diff", "pace_wicket_pct", "spin_wicket_pct", "historical_draw_pct"]
-    print(df[df["status"] == "upcoming"][preview_cols].to_string(index=False))
+    print(f"Feature dataset saved to: {output_path}")
