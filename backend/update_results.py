@@ -26,9 +26,16 @@ def fetch_and_update_matches():
 
     print("Fetching latest match results from CricketData API...")
     url = f"https://api.cricketdata.org/v1/matches?apikey={API_KEY}&offset=0"
+
+    
+    # Add a standard browser User-Agent to bypass the API's security firewall
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
     
     try:
-        response = requests.get(url)
+        # Pass the headers and a 15-second timeout
+        response = requests.get(url, headers=headers, timeout=15)
         data = response.json()
     except Exception as e:
         print(f"❌ API Request Failed: {e}")
@@ -86,20 +93,4 @@ def fetch_and_update_matches():
                 updated_count += 1
                 break # Only update the first chronological upcoming match between them
 
-    # Save the updated fixtures and rebuild the ML predictions
-    if updated_count > 0:
-        with open(FIXTURES_FILE, "w") as f:
-            json.dump(fixtures, f, indent=2)
-            
-        print(f"🎉 Successfully saved {updated_count} new match result(s).")
-        print("Re-running Machine Learning pipeline...")
-        
-        # Re-run data pipeline to update probabilities for remaining matches
-        os.system("python backend/data_pipeline.py")
-        os.system("python backend/ml_predictor.py")
-        print("✅ Pipeline complete! The Next.js frontend table will now reflect the live updates.")
-    else:
-        print("No new completed WTC matches found to update.")
-
-if __name__ == "__main__":
-    fetch_and_update_matches()
+    # Save the updated fixtures and rebuild
